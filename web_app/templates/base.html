@@ -1,0 +1,56 @@
+{% load static %}
+<!doctype html>
+<html>
+
+<head>
+    <title>{% block title %}Home{% endblock %}</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <script src="https://kit.fontawesome.com/38a0fd0978.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!-- Navigational Bar [START] -->
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="/">
+                <img src="https://media.discordapp.net/attachments/771416611092692992/792773588099923968/unknown.png" width="112" height="28">
+            </a>
+        </div>
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="buttons">
+                        <a class="button is-danger">
+                            <strong>Sign up</strong>
+                        </a>
+                        <a class="button is-success">
+                            Log in
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Navigational Bar [END] -->
+    
+    <!-- Main Content [START] -->
+    <div class='page' style="width:100%;height:100%;margin:0;">
+        {% block content %}
+        {% endblock %}
+    </div>
+    <!-- Main Content [END] -->
+    
+    <!-- Footer Bar [START] -->
+    <footer class="footer" style="width:100%;margin:0;">
+        <div class="content has-text-centered">
+            <p>
+                <strong>CourseCal</strong> was developed by <a href="https://github.com/nishi7409/CourseCal/">amazing people</a> <i style="color:tomato;" class="fas fa-heart"></i></a>
+            </p>
+        </div>
+    </footer>
+    <!-- Footer Bar [END] -->
+</body>
+</html>
