@@ -1,0 +1,19 @@
+{
+  "name": "coursecal",
+  "version": "1.0.0",
+  "description": "Automate the process of transferring your semester's calendar from your university's end to your personal calendar (google calendar/outlook calendar/etc)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nishi7409/CourseCal.git"
+  },
+  "author": "awesome people",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nishi7409/CourseCal/issues"
+  },
+  "homepage": "https://github.com/nishi7409/CourseCal#readme"
+}

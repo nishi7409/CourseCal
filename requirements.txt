@@ -1,6 +1,8 @@
-# Django==2.2.13
-git+https://github.com/django-nonrel/mongodb-engine
+Django==2.2.13
 git+https://github.com/django-nonrel/djangotoolbox
 git+https://github.com/django-nonrel/django@nonrel-1.5
 python-dotenv
-django-mongodb-engine-py3
+google-api-python-client
+google-auth-httplib2
+google-auth-oauthlib
+ics

@@ -14,7 +14,23 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django import forms
 import json
+from ..microservices.googleCal import urlGenerator
 
 # Create your views here.
 def index(request):
     return render(request, 'index.html', {})
+
+def save_university(request):
+    if request.method == "POST":
+        newUni = University(name="Rensselaer Polytechnic Institute", domain="rpi.edu")
+        newUni.save()
+    else:
+        pass
+
+def save_student(request):
+    if request.method == "POST":
+        uniqueURL = URLCalendar(calendar=urlGenerator.createURL())
+        newStud = Student(name="Nishant Srivastava", email="srivan@rpi.edu", phone_num=5186182796, calendar_link=uniqueURL)
+        newStud.save()
+    else:
+        pass
