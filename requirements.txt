@@ -1,5 +1,6 @@
-Django==2.2.13
+# Django==2.2.13
 git+https://github.com/django-nonrel/mongodb-engine
 git+https://github.com/django-nonrel/djangotoolbox
 git+https://github.com/django-nonrel/django@nonrel-1.5
 python-dotenv
+django-mongodb-engine-py3

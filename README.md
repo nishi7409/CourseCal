@@ -7,7 +7,7 @@ Automate the process of transferring your semester's calendar from your universi
 To deactivate, simply enter `deactivate`
 
 # Dependencies
-- `python3 -m pip install -r requirements.txt` then lock the requirements
+- `python3 -m pip install -r requirements.txt` then lock the requirements *(you may need to run `wget https://bootstrap.pypa.io/get-pip.py` then `sudo python3.6 get-pip.py`)*
 - `pip freeze > requirements.txt`
 
 # Starting the server & stuff
