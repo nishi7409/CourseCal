@@ -2,6 +2,15 @@ import datetime
 import os.path
 import json
 
-# verify google calendar link
+# generate google calendar link for user
 def createURL():
-    return("https://www.google.com")
+    name = "Nishant Srivastava"
+    school = "rpi.edu"
+    api.create(name,school)
+    return(link)
+
+# when user deletes account, delete calendar
+def deleteURL(link):
+    api.delete(link)
+
+# :~)

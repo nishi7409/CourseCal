@@ -16,13 +16,17 @@ from django import forms
 import json
 from .microservices.googleCal import urlGenerator
 
-# Create your views here.
+# home page
 def index(request):
     return render(request, 'index.html', {})
 
+# sign up page
+def signUp(request):
+    return render(request, 'sign-up.html', {})
+
 def save_university(request):
     if request.method == "POST":
-        newUni = University(name="Rensselaer Polytechnic Institute", domain="rpi.edu")
+        newUni = University(name="Rensselaer Polytechnic Institute", domain="rpi.edu", registeredStudents=0)
         newUni.save()
     else:
         pass
