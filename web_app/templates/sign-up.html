@@ -4,27 +4,37 @@
 <!-- put main code here -->
 {% block content %}
 
-<div class="card">
-    <div class="card-content">
-        <p class="title">
-            “There are two hard things in computer science: cache invalidation, naming things, and off-by-one errors.”
-        </p>
-        <p class="subtitle">
-            Jeff Atwood
-        </p>
+<center>
+    <div class="field" style="width:50%;">
+        <label class="label">Name</label>
+        <div class="control">
+            <input class="input" type="text" placeholder="John Doe">
+        </div>
+        <br>
+        <label class="label">Email</label>
+        <div class="control">
+            <input class="input" type="email" placeholder="name@domain.edu">
+        </div>
+        <br>
+        <label class="label">Password</label>
+        <div class="control">
+            <input class="input" type="password" placeholder="*********">
+        </div>
+        <br>
+        <label class="label">Retype Password</label>
+        <div class="control">
+            <input class="input" type="password" placeholder="*********">
+        </div>
+        <br>
+        <label class="label">Phone Number</label>
+        <div class="control">
+            <input class="input" type="number" placeholder="123-456-7890">
+        </div>
+        <br>
+        <div class="control">
+            <button id="signUpButton" class="button is-danger">Sign Up</button>
+        </div>
     </div>
-    <footer class="card-footer">
-        <p class="card-footer-item">
-            <span>
-                View on <a href="https://twitter.com/codinghorror/status/506010907021828096">Twitter</a>
-            </span>
-        </p>
-        <p class="card-footer-item">
-            <span>
-                Share on <a href="#">Facebook</a>
-            </span>
-        </p>
-    </footer>
-</div>
+</center>
 
 {% endblock %}

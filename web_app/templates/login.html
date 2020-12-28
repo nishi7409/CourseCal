@@ -4,27 +4,35 @@
 <!-- put main code here -->
 {% block content %}
 
-<div class="card">
-    <div class="card-content">
-        <p class="title">
-            "Life is a journey"
-        </p>
-        <p class="subtitle">
-            Dad
-        </p>
-    </div>
-    <footer class="card-footer">
-        <p class="card-footer-item">
-            <span>
-                View on <a href="https://twitter.com/codinghorror/status/506010907021828096">Twitter</a>
-            </span>
-        </p>
-        <p class="card-footer-item">
-            <span>
-                Share on <a href="#">Facebook</a>
-            </span>
-        </p>
-    </footer>
-</div>
-
+<center>
+    <form method="POST" action="login">
+        {% csrf_token %}
+        <div class="field" style="width:50%;">
+            <fieldset class="form-group">
+                <label class="label">Username</label>
+                <div class="control">
+                    <input id="username" name="username" class="input" type="username" placeholder="username"/>
+                </div>
+            </fieldset>
+            <fieldset class="form-group">
+                <label class="label">Password</label>
+                <div class="control">
+                    <input id="password" name="password" class="input" type="password" placeholder="********"/>
+                </div>
+            </fieldset>
+            {% if error %}
+            <br>
+            <div class="notification is-danger"r">
+                <strong>{{ error|escape }}</strong>
+            </div>
+            {% endif %}
+            <br>
+            <div class="control">
+                <button type="submit" id="loginButton" class="button is-success">Login</button>
+            </div>
+            <br>
+            <a href="{% url 'signup'  %}" style="color: blue;">Don't have an account? Sign up here!</a>
+        </div>
+    </form>
+</center>
 {% endblock %}

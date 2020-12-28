@@ -22,7 +22,59 @@ def index(request):
 
 # sign up page
 def signUp(request):
+    if request.method == "POST":
+        name = request.post['name']
+        email = request.post['email']
+        phoneNum = request.post['phoneNum']
+
+        form = UserForm(data = request.POST)
+
+        if form.is_valid():
+            user = form.save()
+
+            user.is_active = False
+            user.save()
+
+            uniqueURL = URLCalendar(calendar=urlGenerator.createURL())
+            newStudent = Student(name=name, email=email, phone_num=phoneNum, status=False, calendar_link=uniqueURL)
+            newStudent.save()
+
+            html_msg = f"<p><a href='{request.build_absolute_uri('/register/confirm/')}{user.id}'>Click here to activate your account!</a></p>"
+            mail.send_mail("Account Confirmation", "Please confirm your account registration.", settings.EMAIL_HOST_USER, [user.email], html_message=html_msg)
+        else:
+            pass
+    else:
+        form = UserCreationForm()
     return render(request, 'sign-up.html', {})
+
+# sign up page
+def userLogin(request):
+    if request.method == "POST":
+        username = request.POST['username']
+        password = request.POST['password']
+
+        user = authenticate(username=username, password=password)
+
+        # valid user
+        if user:
+            # user is valid, active, and authenticated
+            if user.is_active:
+                login(request, user)
+                request.session['is_login'] = True
+                request.session['user_name'] = username
+                # user_id = User.objects.filter(username = username).values('id').first()
+                # request.session['user_id'] = user_id['id']
+                return render(request, 'dashboard.html', {'error': 'Success and account is activated'})
+            
+            # user is valid, but not active
+            else:
+                return render(request, 'login.html', {'error': 'Success, but account is deactivated'})
+
+        # user doesn't exist
+        else:
+            return render(request, 'login.html', {'error': 'Invalid login credentials'})
+
+    return render(request, 'login.html', {})
 
 def save_university(request):
     if request.method == "POST":
@@ -31,18 +83,8 @@ def save_university(request):
     else:
         pass
 
-def save_student(request):
-    if request.method == "POST":
-        uniqueURL = URLCalendar(calendar=urlGenerator.createURL())
-        newStud = Student(name="Nishant Srivastava", email="srivan@rpi.edu", phone_num=5186182796, calendar_link=uniqueURL)
-        newStud.save()
-    else:
-        pass
 
 def register(request):
-    pass
-
-def login(request):
     pass
 
 def otp():

@@ -7,9 +7,10 @@ class University(models.Model):
     registeredStudents = models.IntegerField(null=False, blank=False)
 
 class Student(models.Model):
-    email = models.CharField(max_length=100, null=False, blank=False)
     name = models.CharField(max_length=100, null=False, blank=False)
+    email = models.CharField(max_length=100, null=False, blank=False)
     phone_num = models.CharField(max_length=200, null=False, blank=False)
+    status = models.IntegerField(null=False, blank=False)
     calendar_link = models.ForeignKey("URLCalendar", on_delete=models.CASCADE)
 
 class URLCalendar(models.Model):
