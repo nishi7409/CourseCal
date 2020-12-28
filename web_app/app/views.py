@@ -1,5 +1,5 @@
 from django.http import HttpResponse, HttpRequest, HttpResponseServerError, HttpResponseRedirect
-from django.shortcuts import render, redirect
+from django.shortcuts import redirect
 from django.shortcuts import render
 from django.conf import settings
 from .models import *
@@ -14,7 +14,7 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django import forms
 import json
-from ..microservices.googleCal import urlGenerator
+from .microservices.googleCal import urlGenerator
 
 # Create your views here.
 def index(request):
@@ -34,3 +34,12 @@ def save_student(request):
         newStud.save()
     else:
         pass
+
+def register(request):
+    pass
+
+def login(request):
+    pass
+
+def otp():
+    pass

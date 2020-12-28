@@ -4,27 +4,92 @@
 <!-- put main code here -->
 {% block content %}
 
-<div class="card">
-    <div class="card-content">
-        <p class="title">
-            “Life is a journey”
-        </p>
-        <p class="subtitle">
-            Dad
-        </p>
-    </div>
-    <footer class="card-footer">
-        <p class="card-footer-item">
-            <span>
-                View on <a href="https://twitter.com/codinghorror/status/506010907021828096">Twitter</a>
-            </span>
-        </p>
-        <p class="card-footer-item">
-            <span>
-                Share on <a href="#">Facebook</a>
-            </span>
-        </p>
-    </footer>
-</div>
+<script type="text/javascript" src="{% static '/scripts/index.js' %}"></script>
+<link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}" />
 
+<div class="top">
+    <section class="section">
+        <div class="container.is-widescreen">
+            <h1 id="titleHeader">CourseCal</h1>
+            <p id="titleSubtitle">Automate the process of taking your school's schedule and implementing it into your personal calendar</p>
+        </div>
+    </section>
+</div>
+<div class="middle">
+    <section class="section">
+        <div class="container.is-max-desktop">
+            <div class="columns is-mobile">
+                <div class="column is-one-third">
+                    <div class="card">
+                        <header class="card-header">
+                            <p class="card-header-title">Security</p>
+                            <a href="#" class="card-header-icon" aria-label="more options">
+                                <span class="icon">
+                                    <i class="fas fa-angle-down" aria-hidden="true"></i>
+                                </span>
+                            </a>
+                        </header>
+                        <div class="card-content">
+                            <div class="content">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris. 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-one-third">
+                    <div class="card">
+                        <header class="card-header">
+                            <p class="card-header-title">Students</p>
+                            <a href="#" class="card-header-icon" aria-label="more options">
+                                <span class="icon">
+                                    <i class="fas fa-angle-down" aria-hidden="true"></i>
+                                </span>
+                            </a>
+                        </header>
+                        <div class="card-content">
+                            <div class="content">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris. Lorem ipsum dolor sit
+                                amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.Lorem ipsum dolor sit amet, consectetur
+                                adipiscing elit. Phasellus nec iaculis mauris.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Phasellus nec iaculis mauris.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis
+                                mauris.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-one-third">
+                    <div class="card">
+                        <header class="card-header">
+                            <p class="card-header-title">Automated</p>
+                            <a href="#" class="card-header-icon" aria-label="more options">
+                                <span class="icon">
+                                    <i class="fas fa-angle-down" aria-hidden="true"></i>
+                                </span>
+                            </a>
+                        </header>
+                        <div class="card-content">
+                            <div class="content">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris. Lorem ipsum dolor sit
+                                amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.Lorem ipsum dolor sit amet, consectetur
+                                adipiscing elit. Phasellus nec iaculis mauris.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Phasellus nec iaculis mauris.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis
+                                mauris.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<div class="video">
+    <section class="section">
+        <div class="container.is-max-desktop">
+            <figure class="image is-16by9">
+                <iframe class="has-ratio" src="https://www.youtube.com/embed/duqFO4wony8"
+                    allowfullscreen></iframe>
+            </figure>
+        </div>
+    </section>
+</div>
 {% endblock %}

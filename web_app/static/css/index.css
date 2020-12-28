@@ -1,0 +1,30 @@
+.top{
+    color: white;
+    background-image: url("https://images.pexels.com/photos/159490/yale-university-landscape-universities-schools-159490.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+}
+
+#titleHeader{
+    font-size: 5vw;
+}
+
+#titleSubtitle{
+    font-size: 1vw;
+}
+
+.middle{
+    background-color: whitesmoke;
+    height: 100%;
+    width: 100%;
+}
+
+.video{
+    background-image: url("https://images.pexels.com/photos/3877381/pexels-photo-3877381.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+}
