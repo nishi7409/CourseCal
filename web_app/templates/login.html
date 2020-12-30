@@ -26,6 +26,12 @@
                 <strong>{{ error|escape }}</strong>
             </div>
             {% endif %}
+            {% if success %}
+            <br>
+            <div class="notification is-success" r">
+                <strong>{{ success|escape }}</strong>
+            </div>
+            {% endif %}
             <br>
             <div class="control">
                 <button type="submit" id="loginButton" class="button is-success">Login</button>

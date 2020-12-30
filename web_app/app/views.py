@@ -13,8 +13,11 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django import forms
-import json
 from .microservices.googleCal import urlGenerator
+import discord
+# from discord import Webhook, RequestsWebhookAdapter
+import json
+import requests
 
 # home page
 def index(request):
@@ -23,28 +26,42 @@ def index(request):
 # sign up page
 def signUp(request):
     if request.method == "POST":
-        name = request.post['name']
-        email = request.post['email']
-        phoneNum = request.post['phoneNum']
-
+        name = request.POST['name']
+        email = request.POST['email']
+        phoneNum = request.POST['phoneNumber']
+        print("HELLO!")
         form = UserForm(data = request.POST)
-
+        print(form)
         if form.is_valid():
             user = form.save()
+            print("gets here")
 
             user.is_active = False
             user.save()
 
-            uniqueURL = URLCalendar(calendar=urlGenerator.createURL())
-            newStudent = Student(name=name, email=email, phone_num=phoneNum, status=False, calendar_link=uniqueURL)
+            # uniqueURL = URLCalendar(calendar=urlGenerator.createURL(name, email))
+            # uniqueURL.save()
+            uniqueURL = urlGenerator.createURL(name, email)
+            # print("Unique URL is " + uniqueURL)
+            newStudent = Student(name=name, email=email, phone_num=phoneNum, calendar_link=uniqueURL)
             newStudent.save()
+
+            print("Saved student object")
+            
+            # https://discordpy.readthedocs.io/en/latest/api.html#discord.Webhook
+            webhookURL = "https://discord.com/api/webhooks/793900861436461077/y4vdzi7E9vitmOjtHAiCIVgTnvP5__rIqI_y3b4a0i-9hd-nLXygKt_gTdaa_yL4QmPJ"
+            webhook = discord.Webhook.from_url(webhookURL, adapter=discord.RequestsWebhookAdapter())
+            embed = discord.Embed(title="New User", description="A new user has registered with CourseCal!", colour=0x47ff8e)
+            embed.add_field(name="Name", value=name)
+            embed.add_field(name="Email", value=email)
+            embed.add_field(name="Calendar ID", value=uniqueURL)
+            webhook.send(embed=embed)
 
             html_msg = f"<p><a href='{request.build_absolute_uri('/register/confirm/')}{user.id}'>Click here to activate your account!</a></p>"
             mail.send_mail("Account Confirmation", "Please confirm your account registration.", settings.EMAIL_HOST_USER, [user.email], html_message=html_msg)
+            return render(request, 'sign-up.html', {"success":"Check your email, I sent you an account confirmation link!"})
         else:
-            pass
-    else:
-        form = UserCreationForm()
+            return render(request, 'sign-up.html', {"error": "Error: There was a form error. Retype the above information and resubmit!"})
     return render(request, 'sign-up.html', {})
 
 # sign up page
@@ -64,11 +81,11 @@ def userLogin(request):
                 request.session['user_name'] = username
                 # user_id = User.objects.filter(username = username).values('id').first()
                 # request.session['user_id'] = user_id['id']
-                return render(request, 'dashboard.html', {'error': 'Success and account is activated'})
+                return render(request, 'login.html', {'success': 'Success and account is activated'})
             
             # user is valid, but not active
             else:
-                return render(request, 'login.html', {'error': 'Success, but account is deactivated'})
+                return render(request, 'login.html', {'success': 'Success, but account is deactivated'})
 
         # user doesn't exist
         else:

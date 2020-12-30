@@ -3,38 +3,61 @@
 
 <!-- put main code here -->
 {% block content %}
+<script type="text/javascript" src="{% static '/scripts/sign-up.js' %}"></script>
 
 <center>
-    <div class="field" style="width:50%;">
-        <label class="label">Name</label>
-        <div class="control">
-            <input class="input" type="text" placeholder="John Doe">
+    <!-- <form name="signUpForm" method="POST" action="signup" onsubmit="return validate()"> -->
+    <form name="signUpForm" method="POST" action="signup">
+        {% csrf_token %}
+        <div class="field" style="width:50%;">
+            <fieldset class="form-group">
+                <label for="name" class="label">Name</label>
+                <div class="control">
+                    <input id="reg_name" name="name" class="input" type="text" placeholder="Name" />
+                </div>
+            </fieldset>
+            <fieldset class="form-group">
+                <label for="email" class="label">Email</label>
+                <div class="control">
+                    <input id="reg_email" name="email" class="input" type="text" placeholder="email@school.edu" />
+                </div>
+            </fieldset>
+            <fieldset class="form-group">
+                <label for="password1" class="label">Password</label>
+                <div class="control">
+                    <input id="reg_password" name="password1" class="input" type="password" placeholder="********" />
+                </div>
+            </fieldset>
+            <fieldset class="form-group">
+                <label for="password2" class="label">Retype Password</label>
+                <div class="control">
+                    <input id="reg_password" name="password2" class="input" type="password" placeholder="********" />
+                </div>
+            </fieldset>
+            <fieldset class="form-group">
+                <label for="pnumber" class="label">Phone Number</label>
+                <div class="control">
+                    <input id="reg_number" name="phoneNumber" class="input" type="number" placeholder="123-456-7890" />
+                </div>
+            </fieldset>
+            {% if error %}
+            <br>
+            <div class="notification is-danger" r">
+                <strong>{{ error|escape }}</strong>
+            </div>
+            {% endif %}
+            {% if success %}
+            <br>
+            <div class="notification is-success" r">
+                <strong>{{ success|escape }}</strong>
+            </div>
+            {% endif %}
+            <br>
+            <div class="control">
+                <button type="submit" id="signUpButton" class="button is-danger">Sign Up</button>
+            </div>
         </div>
-        <br>
-        <label class="label">Email</label>
-        <div class="control">
-            <input class="input" type="email" placeholder="name@domain.edu">
-        </div>
-        <br>
-        <label class="label">Password</label>
-        <div class="control">
-            <input class="input" type="password" placeholder="*********">
-        </div>
-        <br>
-        <label class="label">Retype Password</label>
-        <div class="control">
-            <input class="input" type="password" placeholder="*********">
-        </div>
-        <br>
-        <label class="label">Phone Number</label>
-        <div class="control">
-            <input class="input" type="number" placeholder="123-456-7890">
-        </div>
-        <br>
-        <div class="control">
-            <button id="signUpButton" class="button is-danger">Sign Up</button>
-        </div>
-    </div>
+    </form>
 </center>
 
 {% endblock %}

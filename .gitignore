@@ -1,4 +1,7 @@
 venv/
 .env
 node_modules
-web_app/app/microservices/googleCal/credentials.json
+web_app/app/microservices/googleCal/*.json
+web_app/app/microservices/googleCal/*.pickle
+*.pickle
+web_app/mydatabase
