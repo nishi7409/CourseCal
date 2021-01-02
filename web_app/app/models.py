@@ -16,11 +16,8 @@ class Student(models.Model):
     name = models.CharField(max_length=100, null=False, blank=False)
     phone_num = models.CharField(max_length=200, null=False, blank=False)
     status = models.IntegerField(default=0, null=False, blank=False)
+    admin = models.BooleanField(default=False)
     calendar_link = models.CharField(max_length=600, null=False, blank=False)
-    # calendar_link = models.ForeignKey("URLCalendar", on_delete=models.CASCADE)
-
-# class URLCalendar(models.Model):
-#     calendar = models.CharField(max_length=200, null=False, blank=False)
 
 class UserForm(forms.ModelForm):
     """

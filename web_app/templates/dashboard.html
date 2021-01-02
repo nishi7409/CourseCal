@@ -4,27 +4,103 @@
 <!-- put main code here -->
 {% block content %}
 
-<div class="card">
-    <div class="card-content">
-        <p class="title">
-            "Life is a journey"
-        </p>
-        <p class="subtitle">
-            Dad
-        </p>
+<script type="text/javascript" src="{% static '/scripts/dashboard.js' %}"></script>
+
+<div class="container">
+    <div class="columns">
+        <div class="column is-2 ">
+            <aside class="menu is-hidden-mobile">
+                <p class="menu-label">
+                    Public
+                </p>
+                <ul class="menu-list">
+                    <li><a class="is-active" href="{% url 'dashboard' %}">University Automation</a></li>
+                </ul>
+                <p class="menu-label">
+                    Admin
+                </p>
+                <ul class="menu-list">
+                    <li><a class="is-disabled" href="{% url 'add_university' %}">Add University</a></li>
+                </ul>
+                <p class="menu-label">
+                    Logs
+                </p>
+                <ul class="menu-list">
+                    <li><a class="is-disabled" href="{% url 'updates' %}">Updates</a></li>
+                </ul>
+            </aside>
+        </div>
+        <div class="column is-9">
+            <nav class="breadcrumb" aria-label="breadcrumbs">
+                <ul>
+                    <li class="is-active">University Automation</li>
+                </ul>
+            </nav>
+            <div class="columns">
+                <div class="column">
+                    <div class="card events-card">
+                        <header class="card-header">
+                            <p class="card-header-title">
+                                There are {{ universities.count }} universities listed below. Select one and enter your credentials. We'll take care of the rest :)
+                            </p>
+                        </header>
+                    </div>
+                    <br>
+                    <div class="card-table">
+                        <div class="container">
+                            {% for uni in universities %}
+                            <div class="card is-fullwidth">
+                                <header class="card-header">
+                                    <p class="card-header-title">{{ uni.name }}</p>
+                                    <a class="card-header-icon card-toggle">
+                                        <i class="fa fa-angle-down"></i>
+                                    </a>
+                                </header>
+                                <div class="card-content is-hidden">
+                                    <div class="content">
+                                        <form method="POST" action="success">
+                                            {% csrf_token %}
+                                            <div class="field is-fullwidth">
+                                                <fieldset class="form-group">
+                                                    <label class="label">Username</label>
+                                                    <div class="control">
+                                                        <input id="username" name="username" class="input" type="username" placeholder="username" />
+                                                    </div>
+                                                </fieldset>
+                                                <fieldset class="form-group">
+                                                    <label class="label">Password</label>
+                                                    <div class="control">
+                                                        <input id="password" name="password" class="input" type="password" placeholder="********" />
+                                                    </div>
+                                                </fieldset>
+                                                {% if error %}
+                                                <br>
+                                                <div class="notification is-danger" r">
+                                                    <strong>{{ error|escape }}</strong>
+                                                </div>
+                                                {% endif %}
+                                                {% if success %}
+                                                <br>
+                                                <div class="notification is-success" r">
+                                                    <strong>{{ success|escape }}</strong>
+                                                </div>
+                                                {% endif %}
+                                                <br>
+                                                <div class="control">
+                                                    <button type="submit" id="loginButton" class="button is-fullwidth is-success">Begin Automation</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <footer class="card-footer">
-        <p class="card-footer-item">
-            <span>
-                View on <a href="https://twitter.com/codinghorror/status/506010907021828096">Twitter</a>
-            </span>
-        </p>
-        <p class="card-footer-item">
-            <span>
-                Share on <a href="#">Facebook</a>
-            </span>
-        </p>
-    </footer>
 </div>
 
 {% endblock %}

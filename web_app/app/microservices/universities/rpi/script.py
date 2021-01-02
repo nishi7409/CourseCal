@@ -1,9 +1,8 @@
-# verify login
+# login & scrape
 def login(username, password):
     pass
 
-# get events from student's calendar (from university)
 
-
-def getEvents():
-    pass
+if __name__ == '__main__':
+    print("Entered RPI script")
+    

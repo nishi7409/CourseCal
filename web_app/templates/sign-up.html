@@ -16,30 +16,49 @@
                     <input id="reg_name" name="name" class="input" type="text" placeholder="Name" />
                 </div>
             </fieldset>
+            <br>
             <fieldset class="form-group">
-                <label for="email" class="label">Email</label>
+                <label for="email" class="label">University Email</label>
                 <div class="control">
                     <input id="reg_email" name="email" class="input" type="text" placeholder="email@school.edu" />
                 </div>
             </fieldset>
+            <br>
             <fieldset class="form-group">
                 <label for="password1" class="label">Password</label>
                 <div class="control">
                     <input id="reg_password" name="password1" class="input" type="password" placeholder="********" />
                 </div>
             </fieldset>
+            <br>
             <fieldset class="form-group">
                 <label for="password2" class="label">Retype Password</label>
                 <div class="control">
                     <input id="reg_password" name="password2" class="input" type="password" placeholder="********" />
                 </div>
             </fieldset>
+            <br>
             <fieldset class="form-group">
                 <label for="pnumber" class="label">Phone Number</label>
                 <div class="control">
                     <input id="reg_number" name="phoneNumber" class="input" type="number" placeholder="123-456-7890" />
                 </div>
             </fieldset>
+            <br>
+            <!-- <fieldset class="form-group">
+                <label for="pnumber" class="label">University Selection</label>
+                <div class="field is-fullwiwdth">
+                    <p class="control">
+                        <span class="select">
+                            <select>
+                                {% for uni in universities %}
+                                <option>{{ uni.name  }}</option>
+                                {% endfor %}
+                            </select>
+                        </span>
+                    </p>
+                </div>
+            </fieldset> -->
             {% if error %}
             <br>
             <div class="notification is-danger" r">

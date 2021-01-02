@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!-- put main code here -->
+{% block content %}
+
+<div class="container">
+    <div class="columns">
+        <div class="column is-2 ">
+            <aside class="menu is-hidden-mobile">
+                <p class="menu-label">
+                    Public
+                </p>
+                <ul class="menu-list">
+                    <li><a class="is-disabled" href="{% url 'dashboard' %}" ">University Automation</a></li>
+                </ul>
+                <p class="menu-label">
+                    Admin
+                </p>
+                <ul class="menu-list">
+                    <li><a class="is-disabled" href="{% url 'add_university' %}">Add University</a></li>
+                </ul>
+                <p class="menu-label">
+                    Logs
+                </p>
+                <ul class="menu-list">
+                    <li><a class="is-active" href="{% url 'updates' %}">Updates</a></li>
+                </ul>
+            </aside>
+        </div>
+        <div class="column is-9">
+            <nav class="breadcrumb" aria-label="breadcrumbs">
+                <ul>
+                    <li class="is-active">Updates</li>
+                </ul>
+            </nav>
+            <div class="columns">
+                <div class="column">
+                    <div class="card events-card">
+                        <header class="card-header">
+                            <p class="card-header-title">
+                                GitHub Updates
+                            </p>
+                        </header>
+                        <div class="card-table">
+                            <div class="content">
+                                <table class="table is-fullwidth is-striped">
+                                    <tbody>
+                                        <tr>
+                                            <td width="1%"><i class="fa fa-info"></i></td>
+                                            <td>Maybe pull information from GitHub?</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

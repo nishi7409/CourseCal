@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!-- put main code here -->
+{% block content %}
+
+<script type="text/javascript" src="{% static '/scripts/dashboard.js' %}"></script>
+
+<div class="container">
+    <div class="columns">
+        <div class="column is-2 ">
+            <aside class="menu is-hidden-mobile">
+                <p class="menu-label">
+                    Public
+                </p>
+                <ul class="menu-list">
+                    <li><a class="is-active" href="{% url 'dashboard' %}">University Automation</a></li>
+                </ul>
+                <p class="menu-label">
+                    Admin
+                </p>
+                <ul class="menu-list">
+                    <li><a class="is-disabled" href="{% url 'add_university' %}">Add University</a></li>
+                </ul>
+                <p class="menu-label">
+                    Logs
+                </p>
+                <ul class="menu-list">
+                    <li><a class="is-disabled" href="{% url 'updates' %}">Updates</a></li>
+                </ul>
+            </aside>
+        </div>
+        <div class="column is-9">
+            <nav class="breadcrumb" aria-label="breadcrumbs">
+                <ul>
+                    <li class="is-active">University Automation</li>
+                </ul>
+            </nav>
+            <div class="columns">
+                <h1>hi</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

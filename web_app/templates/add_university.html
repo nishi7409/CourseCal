@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!-- put main code here -->
+{% block content %}
+
+<div class="container">
+    <div class="columns">
+        <div class="column is-2 ">
+            <aside class="menu is-hidden-mobile">
+                <p class="menu-label">
+                    Public
+                </p>
+                <ul class="menu-list">
+                    <li><a class="is-disabled" href="{% url 'dashboard' %}">University Automation</a></li>
+                </ul>
+                <p class="menu-label">
+                    Admin
+                </p>
+                <ul class="menu-list">
+                    <li><a class="is-active" href="{% url 'add_university' %}">Add University</a></li>
+                </ul>
+                <p class="menu-label">
+                    Logs
+                </p>
+                <ul class="menu-list">
+                    <li><a href="{% url 'updates' %}">Updates</a></li>
+                </ul>
+            </aside>
+        </div>
+        <div class="column is-9">
+            <nav class="breadcrumb" aria-label="breadcrumbs">
+                <ul>
+                    <li class="is-active">University Form</li>
+                </ul>
+            </nav>
+            <div class="columns">
+                <div class="column">
+                    <div class="card events-card">
+                        <header class="card-header">
+                            <p class="card-header-title">
+                                Fill the form below to add a university to the database
+                            </p>
+                        </header>
+                    </div>
+                    <br>
+                    <form method="POST" action="add_university">
+                        {% csrf_token %}
+                        <div class="field">
+                            <fieldset class="form-group">
+                                <label class="label">University naame</label>
+                                <div class="control">
+                                    <input id="uni_name" name="uni_name" class="input" type="text"
+                                        placeholder="Rensselaer Polytechnic Institute" />
+                                </div>
+                            </fieldset>
+                            <fieldset class="form-group">
+                                <label class="label">Domain (email handler)</label>
+                                <div class="control">
+                                    <input id="uni_domain" name="uni_domain" class="input" type="text"
+                                        placeholder="rpi.edu" />
+                                </div>
+                            </fieldset>
+                            <fieldset disabled>
+                                <div class="field">
+                                    <label class="label">Total registered students</label>
+                                    <div class="control">
+                                        <input class="input" type="number" placeholder="0">
+                                    </div>
+                                </div>
+                            </fieldset>
+                            {% if error %}
+                            <br>
+                            <div class="notification is-danger" r">
+                                <strong>{{ error|escape }}</strong>
+                            </div>
+                            {% endif %}
+                            {% if success %}
+                            <br>
+                            <div class="notification is-success" r">
+                                <strong>{{ success|escape }}</strong>
+                            </div>
+                            {% endif %}
+                            <br>
+                            <div class="control">
+                                <button type="submit" id="loginButton"
+                                    class="button is-success is-fullwidth">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
