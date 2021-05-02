@@ -18,7 +18,7 @@ Since we're working with a MongoDB, we don't have to worry about migrations :smi
 
 # Next?
 - Work on the project
-- Setup Docker shit for professionalism (lol) & for ease of deployment
+- Setup Docker for professionalism (lol) & for ease of deployment
 - Work on RPI's automation
 - Integrate a ReCaptcha solver (I bet some universities have implemented Google ReCaptcha or something similar)
 -- maybe make our own ReCaptcha solver (that'd be an insane side project)
