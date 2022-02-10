@@ -1,4 +1,4 @@
-Django==2.2.13
+Django==2.2.27
 git+https://github.com/django-nonrel/djangotoolbox
 git+https://github.com/django-nonrel/django@nonrel-1.5
 python-dotenv
